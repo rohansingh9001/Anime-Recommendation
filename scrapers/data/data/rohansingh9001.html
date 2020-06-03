@@ -1,0 +1,1562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta name="referrer" content="default">
+
+  <style type="text/css">
+    body.ownlist {
+          background-image: url("https://cdn.myanimelist.net/s/common/uploaded_files/1455540188-934a8b8942494df1086f9402bbb5330b.png");
+              background-attachment: fixed;
+              background-position: center top;
+              background-repeat: repeat\2D x;
+        }
+
+        #advanced-options {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    right: 0;
+    background-color: #F6F6F6;
+    display: none;
+    width: 860px;
+    margin: 0 auto;
+    padding: 25px 0px 30px;
+    border: #EBEBEB 1px solid;
+    -moz-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+    -o-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+    -ms-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+    color: #323232;
+    text-align: left;
+    font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+    z-index: 1101;
+}
+#advanced-options .advanced-options-header {
+    width: 750px;
+    margin: 0px auto;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #BEBEBE;
+    font-size: 16px;
+}
+
+#advanced-options .advanced-options-header .description {
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 8px;
+}
+
+#advanced-options select {
+    -ms-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(/img/pc/ownlist/icon_pulldown_triangle.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 18px 8px;
+    background-color: #FFFFFF;
+    display: inline-block;
+    height: 25px;
+    padding: 4px 20px 4px 4px;
+    padding-right: 4px\0;
+    border: #BEBEBE 1px solid;
+    border-radius: 0px;
+    font-size: 12px;
+}
+#advanced-options select::-ms-expand {
+    display: none;
+}
+
+#advanced-options select:disabled {
+    background-image: url(/img/pc/ownlist/icon_pulldown_triangle_disable.png);
+    color: #9B9B9B;
+}
+
+#advanced-options input[type=text] {
+    padding: 4px;
+    border: #BEBEBE 1px solid;
+}
+
+#advanced-options input:focus {
+    outline: none;
+}
+
+/* sort */
+#advanced-options .sort-widget {
+    margin: 0px auto;
+    padding: 12px 0px 0px;
+    width: 750px;
+}
+#advanced-options .sort-widget:last-of-type {
+    padding-bottom: 45px;
+}
+
+#advanced-options .sort-widget select {
+    width: 172px;
+    margin-right: 8px;
+}
+
+#advanced-options .sort-widget input[type=radio] {
+    display: none;
+}
+#advanced-options .sort-widget input[type=radio] + label {
+    background-color: #FFFFFF;
+    display: inline-block;
+    width: 56px;
+    padding: 5px 0px;
+    border: #BEBEBE 1px solid;
+    border-radius: 4px;
+    color: #323232;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+#advanced-options .sort-widget input[type=radio]:checked + label {
+    background-color: #4065BA;
+    border: #4065BA 1px solid;
+    color: #FFFFFF;
+}
+#advanced-options .sort-widget input[type=radio]:disabled + label {
+    border: #BEBEBE 1px solid;
+    color: #9B9B9B;
+}
+#advanced-options .sort-widget input[type=radio]:checked:disabled + label {
+    background-color: #FFFFFF;
+    border: #BEBEBE 1px solid;
+    color: #9B9B9B;
+}
+
+/* filter */
+#advanced-options .filter-widget {
+    margin: 0px auto;
+    padding: 12px 0px 0;
+    width: 750px;
+}
+
+#advanced-options .filter-widget select {
+    margin-right: 8px;
+    font-size: 12px;
+}
+
+#advanced-options .filter-widget.title input[type=text] {
+    width: 360px;
+}
+
+#advanced-options .filter-widget.airing-status select,
+#advanced-options .filter-widget.publishing-status select {
+    width: 152px;
+}
+
+#advanced-options .filter-widget.producer select,
+#advanced-options .filter-widget.magazine select {
+    width: 360px;
+}
+
+#advanced-options .filter-widget.aired-date select.year,
+#advanced-options .filter-widget.published-date select.year {
+    width: 80px;
+}
+
+#advanced-options .filter-widget.aired-date select.month,
+#advanced-options .filter-widget.published-date select.month,
+#advanced-options .filter-widget.aired-date select.day,
+#advanced-options .filter-widget.published-date select.day {
+    width: 60px;
+}
+
+#advanced-options .filter-widget.aired-date .text,
+#advanced-options .filter-widget.published-date .text {
+    display: inline-block;
+    margin-right: 4px;
+    font-size: 12px;
+}
+
+#advanced-options .filter-widget.aired-season select.year {
+    width: 80px;
+}
+
+#advanced-options .filter-widget.aired-season select.season {
+    width: 110px;
+}
+
+#advanced-options .sort-widget .widget-header,
+#advanced-options .filter-widget .widget-header {
+    display: inline-block;
+    width: 110px;
+    font-size: 12px;
+    font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+}
+
+#advanced-options .sort-widget:last-of-type,
+#advanced-options .filter-widget:last-of-type {
+    padding-bottom: 40px;
+}
+
+#advanced-options .advanced-options-button {
+    width: 750px;
+    margin: 0px auto;
+    padding: 12px 0px 0px;
+    border-top: 1px solid #BEBEBE;
+    text-align: center;
+}
+
+#advanced-options .btn-apply,
+#advanced-options .btn-clear {
+    background-color: rgba(64, 101, 186, 1);
+    display: inline-block;
+    width: 135px;
+    margin: 0 4px;
+    padding: 6px 0px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #FFFFFF;
+    text-align: center;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out
+}
+
+#advanced-options .btn-apply:hover,
+#advanced-options .btn-clear:hover {
+  background-color: rgba(64, 101, 186, 0.8);
+}
+
+
+/**
+ * General Styles
+ */
+
+body {
+    margin: 0 0 0 0;
+    text-align: center;
+    font-family: Verdana, Arial;
+    font-size: 11px;
+}
+
+td {
+    line-height: 1.5em;
+}
+
+a {
+    color: #1d439b;
+    text-decoration: none;
+}
+
+#footer-block {
+    padding: 15px 0;
+    background-color: #2E51A2;
+    color: #FFFFFF;
+    font-family: Avenir, "lucida grande", tahoma, verdana, arial, sans-serif;
+}
+
+#copyright {
+    font-size: 12px;
+    color: #9caed9;
+    padding-top: 3px;
+    text-align: center;
+}
+
+
+/*
+ * Header
+ */
+.header a {
+    font-weight: bold;
+    color: #fff;
+}
+.header a:hover {
+    text-decoration: underline;
+}
+
+.header {
+    position: relative;
+    color: #fff;
+    display: block;
+    width: 1060px;
+    height: 70px;
+    margin: 0 auto
+}
+
+.header .header-title {
+    position: absolute;
+    top: 21px;
+    background-image: url("/img/pc/ownlist/logo_mal.png");
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: auto 36px;
+    display: block;
+    width: 240px;
+    height: 36px;
+    text-indent: -9999px;
+    overflow: hidden
+}
+
+.header .header-menu {
+    position: absolute;
+    top: 25px;
+    right: 4px
+}
+.header .header-menu.other {
+    top: 18px;
+}
+
+.header .header-menu .btn-menu {
+    display: block;
+    text-align: right;
+    font-size: 16px;
+}
+
+.header .header-menu .header-info {
+    font-size: 1.0em;
+    margin-top: 6px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.header .username {
+    font-weight: bold;
+}
+
+.header .header-menu .list-menu {
+    position: absolute;
+    top: 25px;
+    right: -4px;
+    background-color: #ffffff;
+    display: none;
+    border: #2E51A2 1px solid;
+    -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 0 10px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 0 10px;
+    z-index: 1;
+}
+
+.header .header-menu .list-menu .icon-menu {
+    display: block;
+    width: 150px;
+    height: 30px;
+    color: #2E51A2;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out
+}
+
+.header .header-menu .list-menu .icon-menu:hover {
+    background-color: #e1e7f5
+}
+
+.header .header-menu .list-menu .icon-menu svg.icon {
+    position: absolute;
+    fill: #2E51A2;
+    left: 12px;
+    top: 4px;
+}
+
+.header .header-menu .list-menu .icon-menu .text {
+    position: absolute;
+    left: 52px;
+    top: 6px;
+}
+
+/**
+ * Floating Menu
+ */
+.list-menu-float {
+    position: fixed;
+    display: block;
+    top: 20%;
+    width: 50px;
+    border: #EBEBEB 1px solid;
+    z-index: 2
+}
+
+.list-menu-float .icon-menu {
+    position: relative;
+    background-color: #f6f6f6;
+    display: block;
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+/* SVG */
+.list-menu-float .icon-menu svg.icon {
+    position: absolute;
+    fill: #323232;
+}
+.list-menu-float .icon-menu:hover svg.icon {
+    position: absolute;
+    fill: #ffffff;
+}
+
+.list-menu-float .icon-menu.profile {
+    background-size: cover;
+}
+
+.list-menu-float .icon-menu.quick-add {}
+.list-menu-float .icon-menu.quick-add svg.icon-quick-add {
+    left: 13px;
+    top: 12px;
+}
+
+.list-menu-float .icon-menu.anime-list {}
+.list-menu-float .icon-menu.anime-list svg.icon-anime-list {
+    left: 13px;
+    top: 12px;
+}
+
+.list-menu-float .icon-menu.manga-list {}
+.list-menu-float .icon-menu.manga-list svg.icon-manga-list {
+    left: 13px;
+    top: 12px;
+}
+
+.list-menu-float .icon-menu.history {}
+.list-menu-float .icon-menu.history svg.icon-history {
+    left: 13px;
+    top: 12px;
+}
+
+.list-menu-float .icon-menu.export {}
+.list-menu-float .icon-menu.export svg.icon-export {
+    left: 13px;
+    top: 12px;
+}
+
+.list-menu-float .icon-menu.login {}
+.list-menu-float .icon-menu.login svg.icon-login {
+    left: 13px;
+    top: 12px;
+}
+
+.list-menu-float .icon-menu.logout {}
+.list-menu-float .icon-menu.logout svg.icon-logout {
+    left: 13px;
+    top: 14px;
+}
+
+.list-menu-float .icon-menu.setting {}
+.list-menu-float .icon-menu.setting svg.icon-setting {
+    left: 13px;
+    top: 13px;
+}
+
+.list-menu-float .icon-menu .text {
+    position: absolute;
+    top: 14px;
+    left: 50px;
+    width: 0;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 1.4em;
+    font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out
+}
+
+.list-menu-float .icon-menu:not(.profile):hover {
+    background-color: #4065BA;
+    width: 145px;
+}
+
+.list-menu-float .icon-menu:hover .text {
+    width: 94px;
+    opacity: 1
+}
+
+/* setting */
+.list-menu-float .icon-menu.setting .text {
+    top: 0px;
+    width: 0px;
+    height: 100px;
+    opacity: 0;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out
+}
+.list-menu-float .icon-menu.setting:hover .text {
+    top: 0px;
+    width: 114px;
+    height: 100px;
+    opacity: 1
+}
+
+.list-menu-float .icon-menu.setting .text .link-list-setting,
+.list-menu-float .icon-menu.setting .text .link-style-setting {
+    display: block;
+    opacity: 0;
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-list-setting,
+.list-menu-float .icon-menu.setting:hover .text .link-style-setting {
+    position: absolute;
+    background-color: #4065BA;
+    display: block;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    color: #ffffff;
+    opacity: 1;
+}
+.list-menu-float .icon-menu.setting:hover .text .link-list-setting {
+    top: 0px;
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-style-setting {
+    border-top: #EBEBEB 1px solid;
+    top: 50px;
+}
+
+
+/**
+ * List Container
+ */
+
+.list-container {
+    position: relative;
+    background-color: #ffffff;
+    border: #EBEBEB 1px solid;
+    width: 1058px;
+    margin-bottom: 0;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+}
+
+/**
+ * List Container - Cover Block
+ */
+.cover-block {
+    display: block;
+    width: 1024px;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.cover-block .image-container {
+    display: table-cell;
+    padding-top: 16px;
+    width: 1024px;
+}
+
+.cover-block .image-container.hide {
+    display: none;
+}
+
+.cover-block .image-container img {
+    max-width: 1024px;
+}
+
+/* setting icon */
+.cover-block .image-container .btn-list-setting {
+    display: none;
+}
+
+.cover-block .image-container:hover .btn-list-setting {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    padding: 8px;
+    border: rgba(255,255,255,0) 1px solid;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+}
+
+.cover-block .image-container .btn-list-setting:hover {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    background-color: rgba(0,0,0,0.6);
+    padding: 8px;
+    border: #ffffff 1px solid;
+    -moz-box-shadow: 0 0 4px #000000;
+    -webkit-box-shadow: 0 0 4px #000000;
+    -o-box-shadow: 0 0 4px #000000;
+    -ms-box-shadow: 0 0 4px #000000;
+    box-shadow: 0 0 4px #000000;
+    font-size: 14px;
+    color: #ffffff;
+    text-shadow: #323232 1px 1px 1px;
+}
+
+.cover-block .image-container .btn-list-setting .fa-camera {
+    font-size: 16px;
+    -moz-text-shadow: #000000 1px 1px 3px;
+    -webkit-text-shadow: #000000 1px 1px 3px;
+    -o-text-shadow: #000000 1px 1px 3px;
+    -ms-text-shadow: #000000 1px 1px 3px;
+    text-shadow: #000000 1px 1px 3px;
+    -ms-filter:"progid:DXImageTransform.Microsoft.DropShadow(color=#000000,offx=1,offy=1)";
+}
+
+.cover-block .image-container .btn-list-setting .icon-plus-circle {
+    position: absolute;
+    top: 4px;
+    left: 18px;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    -moz-box-shadow: -1px 1px 0px 0px #323232;
+    -webkit-box-shadow: -1px 1px 0px 0px #323232;
+    -o-box-shadow: -1px 1px 0px 0px #323232;
+    -ms-box-shadow: -1px 1px 0px 0px #323232;
+    box-shadow: -1px 1px 0px 0px #323232;
+    font-size: 10px;
+}
+
+.cover-block .image-container .btn-list-setting .text {
+  display: none;
+}
+
+.cover-block .image-container .btn-list-setting:hover .text {
+  display: inline-block;;
+  margin-left: 4px;
+}
+
+/**
+ * List Container - Status Menu
+ */
+.status-menu-container {
+    width: 1058px;
+    height: 46px;
+    background-color: #FFF;
+    border-bottom: #EBEBEB 1px solid;
+    z-index: 1
+}
+
+.status-menu-container.fixed {
+    position: fixed;
+    display: block;
+    top: 0;
+}
+
+.status-menu-container.fixed + div.list-block {
+    margin-top: 62px;
+}
+
+.status-menu-container .status-menu {
+    display: table;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 40px 0;
+}
+
+.status-menu-container .status-menu .status-button {
+    position: relative;
+    display: table-cell;
+    padding: 12px 0;
+    margin: 0;
+    font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.6em;
+    color: #9B9B9B;
+}
+
+.status-menu-container .status-menu .status-button.on {
+    color: #787878;
+    font-weight: bold;
+}
+
+.status-menu-container .status-menu .status-button:after {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: #4065BA;
+    display: block;
+    width: 100%;
+    height: 4px;
+    content: '';
+    opacity: 0;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+.status-menu-container .status-menu .status-button.on:after, .status-menu .status-button:hover:after {
+    opacity: 1
+}
+
+/**
+ * List Container - Status Menu - Search
+ */
+.status-menu-container .search-container {
+    position: absolute;
+    right: 18px;
+}
+.status-menu-container .search-container #search-button {
+    display: inline-block;
+    height: 22px;
+    margin-top: 15px;
+    color: #787878;
+    font-size: 1.6em;
+    vertical-align: middle;
+}
+
+.status-menu-container .search-container #search-box {
+    display: inline-block;
+    width: 0;
+    height: 22px;
+    overflow: hidden;
+    margin-top: 13px;
+    -webkit-transition: width 0.3s;
+    -moz-transition: width 0.3s;
+    transition: width 0.3s;
+    -webkit-backface-visibility: hidden;
+    vertical-align: middle;
+}
+
+.status-menu-container .search-container #search-box.open {
+    display: inline-block;
+    width: 100px;
+}
+
+.status-menu-container .search-container #search-box input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/**
+ * List Container - List Block
+ */
+.list-block {
+    margin-top: 16px;
+    min-height: 600px;
+    padding: 0
+}
+
+.list-unit {
+    display: block;
+    margin: 0 auto;
+    width: 1024px
+}
+
+/**
+ * List Container - List Status Title (with Stats)
+ */
+.list-unit .list-status-title {
+    position: relative;
+    display: table;
+    background-color: #4065BA;
+    width: 1024px;
+    height: 38px
+}
+
+.list-unit .list-status-title .text {
+    display: table-cell;
+    width: 1024px;
+    height: 38px;
+    font-size: 2.0em;
+    color: #FFF;
+    font-weight: bold;
+    font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+    text-align: center;
+    vertical-align: middle
+}
+
+.list-unit .list-status-title .stats {
+    position: absolute;
+    height: 38px;
+    line-height: 38px;
+    right: 4px;
+}
+
+.list-unit .list-status-title .stats a {
+    margin-right: 8px;
+    color: #FFF;
+}
+
+.list-unit .list-status-title .stats a.filterd {
+    text-shadow: 0px 0px 2px #FFF;
+}
+
+.list-unit .list-stats {
+    display: none;
+    background-color: #4065BA;
+    width: 1024px;
+    height: 30px;
+    line-height: 30px;
+    color: #FFF;
+    text-align: center;
+}
+
+
+/**
+ * List Container - List Table
+ */
+
+.list-table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: #EBEBEB 1px solid;
+}
+
+.list-table > tbody:nth-of-type(2n+1) {
+    background-color: #fcfcfc;
+}
+
+
+/**
+ * List Container - List Table - Header
+ */
+
+.list-table .list-table-header .header-title {
+    background: #F6F6F6 url("/img/pc/ownlist/bar-table-header.png") no-repeat right 7px / 1px 22px;
+    display: table-cell;
+    border-bottom: #EBEBEB 1px solid;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.list-table .list-table-header .header-title:last-child {
+    background-image: none;
+}
+
+.list-table .list-table-header .header-title.status {
+    background-image: none;
+    width: 4px
+}
+
+.list-table .list-table-header .header-title.number {
+    width: 30px
+}
+
+.list-table .list-table-header .header-title.image {
+    width: 66px
+}
+
+.list-table .list-table-header .header-title.title {
+    padding-left: 8px;
+    text-align: left
+}
+
+.list-table .list-table-header .header-title.score {
+    width: 65px
+}
+
+.list-table .list-table-header .header-title.type {
+    width: 60px
+}
+
+.list-table .list-table-header .header-title.progress {
+    width: 90px
+}
+
+.list-table .list-table-header .header-title.chapters {
+    width: 90px
+}
+
+.list-table .list-table-header .header-title.volumes {
+    width: 90px
+}
+
+.list-table .list-table-header .header-title.tags {
+    width: 120px
+}
+
+.list-table .list-table-header .header-title.rated {
+    width: 70px
+}
+
+.list-table .list-table-header .header-title.started {
+    width: 110px
+}
+
+.list-table .list-table-header .header-title.finished {
+    width: 110px
+}
+
+.list-table .list-table-header .header-title.days {
+    width: 45px
+}
+
+.list-table .list-table-header .header-title.storage {
+    width: 75px
+}
+
+.list-table .list-table-header .header-title.retail {
+    width: 65px;
+}
+
+.list-table .list-table-header .header-title.priority {
+    width: 70px
+}
+
+.list-table .list-table-header .header-title .link {
+    font-size: 11px;
+    color: #323232;
+    text-decoration: none
+}
+
+.list-table .list-table-header .header-title .link.sort {
+    position: relative;
+    display: inline-block;
+    color: #323232;
+    white-space: nowrap;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out
+}
+
+.list-table .list-table-header .header-title .link.sort:hover {
+    color: #2556c6
+}
+
+.list-table .list-table-header .header-title .sort-icon {
+    color: #1d439b;
+}
+
+
+/**
+ * List Container - List Table - Items
+ */
+
+.list-table .list-table-data .data {
+    display: table-cell;
+    padding: 4px 0;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: #EBEBEB 1px solid
+}
+
+.list-table .list-table-data a:not(.edit-disabled):hover {
+    text-decoration: underline;
+}
+
+.list-table .list-table-data a.edit-disabled {
+    cursor: text;
+    color: black;
+}
+
+.list-table .list-table-data .tags .edit {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #2db039;
+    font-size: 10px;
+    font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+}
+
+.list-table .list-table-data .tags .edit:hover {
+    color: green !important;
+}
+
+.list-table .list-table-data .tags textarea {
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+}
+
+.list-table .list-table-data .data.image a {
+    display: inline-block;
+}
+.list-table .list-table-data .data.image .image {
+    width: 48px;
+    height: 68px;
+    border: #EBEBEB 1px solid
+}
+
+.list-table .list-table-data .data.title {
+    padding-left: 8px;
+    text-align: left;
+    word-wrap: break-word
+}
+
+.list-table .list-table-data .data.title .link {
+    font-size: 1.1em;
+    font-weight: bold
+}
+
+.list-table .list-table-data .data.title .rewatching, .list-table .list-table-data .data.title .rereading, .list-table .list-table-data .data.title .content-status {
+    color: #BABABA;
+    font-size: 0.9em
+}
+
+.list-table .list-table-data .data.score .link {
+    font-size: 1.1em;
+    font-weight: bold
+}
+
+.list-table .list-table-data .data.title .add-edit-more {
+    float: right;
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+
+.list-table .list-table-data .data.title .more {
+    position: relative;
+}
+
+.list-table .more-info {
+    display: none;
+    border-bottom: #EBEBEB 1px solid;
+}
+
+.list-table .more-info .more-content {
+    padding: 10px;
+}
+
+.list-table .list-table-data .data.tags {
+    word-wrap: break-word
+}
+
+.list-table .list-table-data .data.status {
+    width: 4px
+}
+
+.list-table .list-table-data .data.status .text {
+    display: none
+}
+
+.list-table .list-table-data .data.status.reading, .list-table .list-table-data .data.status.watching {
+    background-color: #2db039
+}
+
+.list-table .list-table-data .data.status.plantoread, .list-table .list-table-data .data.status.plantowatch {
+    background-color: #c3c3c3
+}
+
+.list-table .list-table-data .data.status.completed {
+    background-color: #26448f
+}
+
+.list-table .list-table-data .data.status.onhold {
+    background-color: #f1c83e
+}
+
+.list-table .list-table-data .data.status.dropped {
+    background-color: #a12f31
+}
+
+.list-table .list-table-data .data.title {
+    padding-left: 8px;
+    text-align: left
+}
+
+.list-unit .loading-space {
+    margin: 8px;
+    height: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+  </style>
+
+    <!--[if gte IE 10]><!-->
+  <style id="custom-css" type="text/css">
+                              
+            </style>
+  <!--<![endif]-->
+
+  
+<link rel="preconnect" href="//fonts.gstatic.com/" crossorigin="anonymous" />
+<link rel="preconnect" href="//fonts.googleapis.com/" crossorigin="anonymous" />
+<link rel="preconnect" href="//tags-cdn.deployads.com/" crossorigin="anonymous" />
+<link rel="preconnect" href="//www.googletagservices.com/" crossorigin="anonymous" />
+<link rel="preconnect" href="//www.googletagmanager.com/" crossorigin="anonymous" />
+<link rel="preconnect" href="//apis.google.com/" crossorigin="anonymous" />
+<link rel="preconnect" href="//pixel-sync.sitescout.com/" crossorigin="anonymous" />
+<link rel="preconnect" href="//pixel.tapad.com/" crossorigin="anonymous" />
+<link rel="preconnect" href="//c.deployads.com/" crossorigin="anonymous" />
+<link rel="preconnect" href="//requal-alleased.com/" crossorigin="anonymous" />
+<link rel="preconnect" href="//tpc.googlesyndication.com/" crossorigin="anonymous" />
+<link rel="preconnect" href="//googleads.g.doubleclick.net/" crossorigin="anonymous" />
+<link rel="preconnect" href="//securepubads.g.doubleclick.net/" crossorigin="anonymous" />
+<link rel="preconnect" href="https://cdn.myanimelist.net" crossorigin="anonymous" />
+
+
+<title>
+rohansingh9001&#039;s Anime List - MyAnimeList.net
+</title>
+
+
+  
+<meta name="keywords" content="anime, myanimelist, anime news, manga" />
+  
+
+<meta property="og:locale" content="en_US"><meta property="fb:app_id" content="360769957454434"><meta property="og:site_name" content="MyAnimeList.net"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@myanimelist"><meta property="og:title" content=" rohansingh9001&#039;s Anime List - MyAnimeList.net "><meta property="og:image" content="https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png"><meta name="twitter:image:src" content="https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png"><meta property="og:url" content="https://myanimelist.net/animelist/rohansingh9001">
+
+<meta name="referrer" content="default"><link rel="manifest" href="/manifest.json">
+
+<meta name='csrf_token' content='01d929b416c1169f0c87bbaf4b9a1de98442d11f'>
+<meta name="fo-verify" content="1e927243-8e02-48e3-b098-a7b78c5b4e36"><meta name="viewport" content="initial-scale=1" /><link rel="preload" as="style" href="https://cdn.myanimelist.net/static/assets/css/pc/style-65fd6d23e6.css" />
+<link rel="preload" as="script" href="https://cdn.myanimelist.net/static/assets/js/pc/header-e1fc28402e.js" />
+<link rel="preload" as="script" href="https://cdn.myanimelist.net/static/assets/js/pc/all-1bd6b6e946.js" />
+
+<link rel="stylesheet" type="text/css" href="https://cdn.myanimelist.net/static/assets/css/pc/style-65fd6d23e6.css" />
+
+<script type="text/javascript" src="https://cdn.myanimelist.net/static/assets/js/pc/header-e1fc28402e.js"></script>
+<script type="text/javascript" src="https://cdn.myanimelist.net/static/assets/js/pc/all-1bd6b6e946.js" id="alljs" data-params='{&quot;origin_url&quot;:&quot;https:\/\/myanimelist.net&quot;,&quot;is_request_bot_filter_log&quot;:true}' async="async"></script>
+
+
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://myanimelist.net/plugins/myanimelist.xml" title="MyAnimeList" />
+
+<link rel="shortcut icon" href="https://cdn.myanimelist.net/images/favicon.ico" />
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <script src="//tags-cdn.deployads.com/a/myanimelist.net.js" async="async"></script></head>
+
+<body class="ownlist  anime " data-work="anime" data-query="{&quot;status&quot;:7}" data-owner="" data-owner-id="9374672" data-owner-name="rohansingh9001" data-country-code="IN">    <div id="advanced-options" class="anime">
+  <a id="fancybox-close" href="#" @click.prevent="closeAdvancedOptions" style="display: block;"></a>
+
+  <div class="filter">
+    <h2 class="advanced-options-header">
+      Filter <span class="description">Apply one or more filters to all titles on the list.</span>
+    </h2>
+    <div class="filter-widget title">
+      <span class="widget-header">Title</span>
+      <input v-model="title.current" type="text">
+    </div>
+    <div class="filter-widget airing-status">
+      <span class="widget-header">Status</span>
+      <select v-model="airingStatus.current">
+        <option v-for="option in airingStatus.options" :value="option.value">${ option.text }</option>
+      </select>
+    </div>
+    <div class="filter-widget producer">
+      <span class="widget-header">Producer</span>
+      <select v-model="producer.current">
+        <option v-for="option in producer.options" :value="option.value">${ option.text }</option>
+      </select>
+    </div>
+    <div class="filter-widget aired-date">
+      <span class="widget-header">Airing Dates</span>
+      <span class="text">Start:</span>
+      <select v-model="airedDate.current.from.year" class="year">
+        <option v-for="option in airedDate.options.year" :value="option.value">${ option.text }</option>
+      </select>
+      <select v-model="airedDate.current.from.month" :disabled="airedDate.current.from.year==0" class="month">
+        <option v-for="option in airedDate.options.month" :value="option.value">${ option.text }</option>
+      </select>
+      <select v-model="airedDate.current.from.day" :disabled="airedDate.current.from.year==0 || airedDate.current.from.month==0" class="day">
+        <option v-for="option in airedDate.options.day" :value="option.value">${ option.text }</option>
+      </select>
+      <span class="text">End:</span>
+      <select v-model="airedDate.current.to.year" class="year">
+        <option v-for="option in airedDate.options.year" :value="option.value">${ option.text }</option>
+      </select>
+      <select v-model="airedDate.current.to.month" :disabled="airedDate.current.to.year==0" class="month">
+        <option v-for="option in airedDate.options.month" :value="option.value">${ option.text }</option>
+      </select>
+      <select v-model="airedDate.current.to.day" :disabled="airedDate.current.to.year==0 || airedDate.current.to.month==0" class="day">
+        <option v-for="option in airedDate.options.day" :value="option.value">${ option.text }</option>
+      </select>
+    </div>
+    <div class="filter-widget aired-season">
+      <span class="widget-header">Season</span>
+      <select v-model="season.current.year" class="year">
+        <option v-for="option in season.options.year" :value="option.value">${ option.text }</option>
+      </select>
+      <select v-model="season.current.season" :disabled="season.current.year==0" class="season">
+        <option v-for="option in season.options.season" :value="option.value">${ option.text }</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="sort">
+    <h2 class="advanced-options-header">
+      Sort <span class="description">Choose one or two columns to be sorted in ascending or descending order.</span>
+    </h2>
+    <div class="sort-widget first">
+      <span class="widget-header">Primary</span>
+      <select v-model="sortFirst.current.value">
+        <option v-for="option in sortFirst.options" :value="option.value">${ option.text }</option>
+      </select>
+      <input type="radio" v-model="sortFirst.current.dir" :disabled="!sortFirst.current.value" id="sort-first-asc" value="asc"><label for="sort-first-asc"><i class="fa fa-sort-amount-asc"></i> Asc</label>
+      <input type="radio" v-model="sortFirst.current.dir" :disabled="!sortFirst.current.value" id="sort-first-desc" value="desc"><label for="sort-first-desc"><i class="fa fa-sort-amount-desc"></i> Desc</label>
+    </div>
+    <div class="sort-widget second">
+      <span class="widget-header">Secondary</span>
+      <select v-model="sortSecond.current.value" :disabled="!sortFirst.current.value">
+        <option v-for="option in sortSecond.options" :value="option.value">${ option.text }</option>
+      </select>
+      <input type="radio" v-model="sortSecond.current.dir" :disabled="!sortFirst.current.value || !sortSecond.current.value" id="sort-second-asc" value="asc"><label for="sort-second-asc"><i class="fa fa-sort-amount-asc"></i> Asc</label>
+      <input type="radio" v-model="sortSecond.current.dir" :disabled="!sortFirst.current.value || !sortSecond.current.value" id="sort-second-desc" value="desc"><label for="sort-second-desc"><i class="fa fa-sort-amount-desc"></i> Desc</label>
+    </div>
+  </div>
+
+  <div class="advanced-options-button">
+    <a href="javascript: void(0);" class="btn-apply" @click="applyFilter()">Apply</a>
+    <a href="javascript: void(0);" class="btn-clear" @click="clearFilter()">Clear</a>
+  </div>
+
+</div>
+  
+    <div class="header">
+        <div class="header-menu other ">
+              <div class="btn-menu">
+          Viewing <a class="username" href="/profile/rohansingh9001">rohansingh9001</a>'s
+          <a href="javascript: void(0);" id="header-menu-button">
+            Anime List
+            <i class="fa fa-angle-down"></i>
+          </a>
+        </div>
+        <div class="header-info">
+                      <a href="/login.php">Log in</a> -
+            <a href="/register.php">Create an Anime List</a>
+                  </div>
+        <div id="header-menu-dropdown" class="list-menu">
+                      <a class="icon-menu manga-list" href="/mangalist/rohansingh9001">
+              <svg class="icon icon-manga-list" width="22px" height="20px" viewBox="0 0 22 20" version="1.1">
+                <g>
+                  <path d="M2.20234783,18.8926957 C2.75913043,18.8926957 3.22256522,18.7076522 3.61165217,18.3177391 C4.00156522,17.9286522 4.1866087,17.4462174 4.1866087,16.8902609 C4.1866087,16.3524783 4.00156522,15.8890435 3.61165217,15.4991304 C3.22256522,15.1100435 2.75913043,14.925 2.20234783,14.925 C1.6463913,14.925 1.18295652,15.1100435 0.793043478,15.4991304 C0.403956522,15.8890435 0.218913043,16.3524783 0.218913043,16.8902609 C0.218913043,17.4462174 0.403956522,17.9286522 0.793043478,18.3177391 C1.18295652,18.7076522 1.6463913,18.8926957 2.20234783,18.8926957 L2.20234783,18.8926957 Z M2.20234783,13.5900435 C2.75913043,13.5900435 3.22256522,13.4041739 3.61165217,13.015087 C4.00156522,12.6251739 4.1866087,12.1435652 4.1866087,11.5867826 C4.1866087,11.049 4.00156522,10.5855652 3.61165217,10.1964783 C3.22256522,9.8073913 2.75913043,9.62152174 2.20234783,9.62152174 C1.6463913,9.62152174 1.18295652,9.8073913 0.793043478,10.1964783 C0.403956522,10.5855652 0.218913043,11.049 0.218913043,11.5867826 C0.218913043,12.1435652 0.403956522,12.6251739 0.793043478,13.015087 C1.18295652,13.4041739 1.6463913,13.5900435 2.20234783,13.5900435 L2.20234783,13.5900435 Z M2.20234783,8.30473913 C2.75913043,8.30473913 3.22256522,8.11969565 3.61165217,7.7306087 C4.00156522,7.34069565 4.1866087,6.85908696 4.1866087,6.32130435 C4.1866087,5.76452174 4.00156522,5.30108696 3.61165217,4.912 C3.22256522,4.52291304 2.75913043,4.33704348 2.20234783,4.33704348 C1.6463913,4.33704348 1.18295652,4.52291304 0.793043478,4.912 C0.403956522,5.30108696 0.218913043,5.76452174 0.218913043,6.32130435 C0.218913043,6.85908696 0.403956522,7.34069565 0.793043478,7.7306087 C1.18295652,8.11969565 1.6463913,8.30473913 2.20234783,8.30473913 L2.20234783,8.30473913 Z M5.61408696,18.1326957 C5.68843478,18.1880435 5.76278261,18.2252174 5.85530435,18.2252174 L18.4266957,18.2252174 C18.5200435,18.2252174 18.5935652,18.1880435 18.667913,18.1326957 C18.7232609,18.0583478 18.7604348,17.984 18.7604348,17.8914783 L18.7604348,15.9072174 C18.7604348,15.8146957 18.7232609,15.7403478 18.667913,15.666 C18.5935652,15.6106522 18.5200435,15.5734783 18.4266957,15.5734783 L5.85530435,15.5734783 C5.76278261,15.5734783 5.68843478,15.6106522 5.61408696,15.666 C5.53973913,15.7403478 5.52156522,15.8146957 5.52156522,15.9072174 L5.52156522,17.8914783 C5.52156522,17.984 5.53973913,18.0583478 5.61408696,18.1326957 L5.61408696,18.1326957 Z M5.61408696,12.8292174 C5.68843478,12.8853913 5.76278261,12.9217391 5.85530435,12.9217391 L18.4266957,12.9217391 C18.5200435,12.9217391 18.5935652,12.8853913 18.667913,12.8292174 C18.7232609,12.7548696 18.7604348,12.6813478 18.7604348,12.588 L18.7604348,10.6045652 C18.7604348,10.5120435 18.7232609,10.4376957 18.667913,10.3633478 C18.5935652,10.308 18.5200435,10.2708261 18.4266957,10.2708261 L5.85530435,10.2708261 C5.76278261,10.2708261 5.68843478,10.308 5.61408696,10.3633478 C5.53973913,10.4376957 5.52156522,10.5120435 5.52156522,10.6045652 L5.52156522,12.588 C5.52156522,12.6813478 5.53973913,12.7548696 5.61408696,12.8292174 L5.61408696,12.8292174 Z M5.56517435,7.54473913 C5.6002174,7.60091304 5.63526046,7.63726087 5.67886959,7.63726087 L11.6042606,7.63726087 C11.6482591,7.63726087 11.6829128,7.60091304 11.7179559,7.54473913 C11.7440435,7.4703913 11.761565,7.39686957 11.761565,7.30352174 L11.761565,5.32008696 C11.761565,5.22756522 11.7440435,5.15321739 11.7179559,5.07886957 C11.6829128,5.02352174 11.6482591,4.98634783 11.6042606,4.98634783 L5.67886959,4.98634783 C5.63526046,4.98634783 5.6002174,5.02352174 5.56517435,5.07886957 C5.5301313,5.15321739 5.52156522,5.22756522 5.52156522,5.32008696 L5.52156522,7.30352174 C5.52156522,7.39686957 5.5301313,7.4703913 5.56517435,7.54473913 L5.56517435,7.54473913 Z" id="Fill-125"></path>
+                  <path d="M18.0854492,0.583007812 L20.4648438,0.583007812 L20.4648438,8.5 L18.9233398,8.5 L18.9233398,3.14501953 C18.9233398,2.99104741 18.9251302,2.77531063 18.9287109,2.49780273 C18.9322917,2.22029484 18.934082,2.00634841 18.934082,1.85595703 L17.4355469,8.5 L15.8295898,8.5 L14.3417969,1.85595703 C14.3417969,2.00634841 14.3435872,2.22029484 14.347168,2.49780273 C14.3507487,2.77531063 14.3525391,2.99104741 14.3525391,3.14501953 L14.3525391,8.5 L12.8110352,8.5 L12.8110352,0.583007812 L15.2172852,0.583007812 L16.6567383,6.80810547 L18.0854492,0.583007812 Z" id="M"></path>
+                </g>
+              </svg>
+              <span class="text">Manga List</span>
+            </a>
+                  </div>
+          </div>
+        <a href="/" class="header-title">MyAnimeList.net</a>
+  </div>
+
+    <div id="list-container" class="list-container">
+
+        <div class="cover-block">
+      <div id="cover-image-container" class="image-container">
+                <img id="cover-image" class="lazyload" data-src="https://cdn.myanimelist.net/s/common/uploaded_files/1455540405-b2e2bf20e11b68631e8439b44d9a51c7.png">
+      </div>
+    </div>
+
+        
+          
+<div id="status-menu" class="status-menu-container">
+  <div class="status-menu"><a href="https://myanimelist.net/animelist/rohansingh9001?status=7"
+         class="status-button all_anime on">All Anime</a><a href="https://myanimelist.net/animelist/rohansingh9001?status=1"
+         class="status-button watching ">Currently Watching</a><a href="https://myanimelist.net/animelist/rohansingh9001?status=2"
+         class="status-button completed ">Completed</a><a href="https://myanimelist.net/animelist/rohansingh9001?status=3"
+         class="status-button onhold ">On Hold</a><a href="https://myanimelist.net/animelist/rohansingh9001?status=4"
+         class="status-button dropped ">Dropped</a><a href="https://myanimelist.net/animelist/rohansingh9001?status=6"
+         class="status-button plantowatch ">Plan to Watch</a><div class="search-container">
+      <div id="search-box" ><input type="text" value=""></div>
+      <a id="search-button" href="javascript: void(0);">
+        <i class="fa fa-search"></i>
+      </a>
+    </div>
+  </div>
+</div>
+    
+          <div style="padding-top: 8px">
+                    <div class="mal-ad-unit" data-ad-width="970" data-ad-height="90">
+        <div class="ad-tag" data-ad-name="D_Top_970x90_728x90_B_2" data-ad-size="970x90,728x90" ></div>
+
+      </div>
+          </div>
+    
+    <div class="list-block">
+              
+
+
+
+
+<div class="list-unit all_anime">
+  <div class="list-status-title">
+    <span class="text">ALL ANIME</span>
+    <span class="stats">
+      <a href="javascript: void(0);" id="show-stats-button"><i class="fa fa-bar-chart"></i> Stats</a>
+      <a href="javascript: void(0);" id="advanced-options-button"><i class="fa fa-filter"></i> Filters</a>
+    </span>
+  </div>
+  <div class="list-stats">
+    TV: 22,
+    OVA: 1,
+    Movies: 13,
+    <span title="Specials">Spcl.</span>: 0,
+    Eps: 942,
+    Days: 15.94,
+    Mean Score: <span class="score-label score-8">8.1</span>,
+    Score <span title="Deviation">Dev.</span>: 0.29
+  </div>
+
+  <table class="list-table" data-items="[{&quot;status&quot;:1,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:8,&quot;anime_title&quot;:&quot;Kaguya-sama wa Kokurasetai?: Tensai-tachi no Renai Zunousen&quot;,&quot;anime_num_episodes&quot;:12,&quot;anime_airing_status&quot;:1,&quot;anime_id&quot;:40591,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/40591\/Kaguya-sama_wa_Kokurasetai__Tensai-tachi_no_Renai_Zunousen\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/40591\/Kaguya-sama_wa_Kokurasetai__Tensai-tachi_no_Renai_Zunousen&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/1764\/106659.jpg?s=368490ae3c395f3cd4e2cc032bf0ebb8&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;04-11-20&quot;,&quot;anime_end_date_string&quot;:null,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:1,&quot;score&quot;:0,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:3,&quot;anime_title&quot;:&quot;Mob Psycho 100&quot;,&quot;anime_num_episodes&quot;:12,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:32182,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/32182\/Mob_Psycho_100\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/32182\/Mob_Psycho_100&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/8\/80356.jpg?s=b8271cc89b30e6285a180f8a0a7fb5e7&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;07-11-16&quot;,&quot;anime_end_date_string&quot;:&quot;09-27-16&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:7,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;Boruto: Naruto the Movie&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:28755,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/28755\/Boruto__Naruto_the_Movie\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/28755\/Boruto__Naruto_the_Movie&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/4\/78280.jpg?s=b5a7d62be3f71076d68280742c974736&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;08-07-15&quot;,&quot;anime_end_date_string&quot;:&quot;08-07-15&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:10,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:37,&quot;anime_title&quot;:&quot;Death Note&quot;,&quot;anime_num_episodes&quot;:37,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:1535,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/1535\/Death_Note\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/1535\/Death_Note&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/9\/9453.jpg?s=a91b3b737fc35d2d7e2c08580872ace5&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;10-04-06&quot;,&quot;anime_end_date_string&quot;:&quot;06-27-07&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:12,&quot;anime_title&quot;:&quot;Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen&quot;,&quot;anime_num_episodes&quot;:12,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:37999,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/37999\/Kaguya-sama_wa_Kokurasetai__Tensai-tachi_no_Renai_Zunousen\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/37999\/Kaguya-sama_wa_Kokurasetai__Tensai-tachi_no_Renai_Zunousen&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/1295\/106551.jpg?s=c429574d498851c05117e2e2dac967c0&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;01-12-19&quot;,&quot;anime_end_date_string&quot;:&quot;03-30-19&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:10,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;Kimi no Na wa.&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:32281,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/32281\/Kimi_no_Na_wa\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/32281\/Kimi_no_Na_wa&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/5\/87048.jpg?s=7ccc4b8cbfc8e793403e20e2b424708b&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;08-26-16&quot;,&quot;anime_end_date_string&quot;:&quot;08-26-16&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:10,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;Koe no Katachi&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:28851,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/28851\/Koe_no_Katachi\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/28851\/Koe_no_Katachi&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/1122\/96435.jpg?s=e0c63757607cb68202ab7cf031a08a15&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;09-17-16&quot;,&quot;anime_end_date_string&quot;:&quot;09-17-16&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:220,&quot;anime_title&quot;:&quot;Naruto&quot;,&quot;anime_num_episodes&quot;:220,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:20,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/20\/Naruto\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/20\/Naruto&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/13\/17405.jpg?s=227c5779cded97b82b4c89de8eda223d&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;10-03-02&quot;,&quot;anime_end_date_string&quot;:&quot;02-08-07&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;Naruto Movie 1: Dai Katsugeki!! Yuki Hime Shinobu Houjou Dattebayo!&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:442,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:false,&quot;has_video&quot;:false,&quot;video_url&quot;:&quot;\/anime\/442\/Naruto_Movie_1__Dai_Katsugeki_Yuki_Hime_Shinobu_Houjou_Dattebayo\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/442\/Naruto_Movie_1__Dai_Katsugeki_Yuki_Hime_Shinobu_Houjou_Dattebayo&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/6\/76015.jpg?s=30db5b9773d4414f6debffd6a98ff6d2&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;08-21-04&quot;,&quot;anime_end_date_string&quot;:&quot;08-21-04&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;Naruto Movie 2: Dai Gekitotsu! Maboroshi no Chiteiiseki Dattebayo!&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:936,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:false,&quot;has_video&quot;:false,&quot;video_url&quot;:&quot;\/anime\/936\/Naruto_Movie_2__Dai_Gekitotsu_Maboroshi_no_Chiteiiseki_Dattebayo\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/936\/Naruto_Movie_2__Dai_Gekitotsu_Maboroshi_no_Chiteiiseki_Dattebayo&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/11\/76016.jpg?s=64c1376f7b6e4f37fad4fa7e17709ac4&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;08-06-05&quot;,&quot;anime_end_date_string&quot;:&quot;08-06-05&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;Naruto Movie 3: Dai Koufun! Mikazuki Jima no Animaru Panikku Dattebayo!&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:2144,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:false,&quot;has_video&quot;:false,&quot;video_url&quot;:&quot;\/anime\/2144\/Naruto_Movie_3__Dai_Koufun_Mikazuki_Jima_no_Animaru_Panikku_Dattebayo\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/2144\/Naruto_Movie_3__Dai_Koufun_Mikazuki_Jima_no_Animaru_Panikku_Dattebayo&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/6\/76017.jpg?s=a8cd1e18eb69a463a6b5836d0db5bce9&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;08-05-06&quot;,&quot;anime_end_date_string&quot;:&quot;08-05-06&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:500,&quot;anime_title&quot;:&quot;Naruto: Shippuuden&quot;,&quot;anime_num_episodes&quot;:500,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:1735,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:true,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/1735\/Naruto__Shippuuden\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/1735\/Naruto__Shippuuden&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/5\/17407.jpg?s=49d6a833dcde619eb0fa974bc7c0dc1b&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;02-15-07&quot;,&quot;anime_end_date_string&quot;:&quot;03-23-17&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;Naruto: Shippuuden Movie 1&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:2472,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:false,&quot;has_video&quot;:false,&quot;video_url&quot;:&quot;\/anime\/2472\/Naruto__Shippuuden_Movie_1\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/2472\/Naruto__Shippuuden_Movie_1&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/6\/79705.jpg?s=10a2d76872022b926274f6872f6f030f&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;08-04-07&quot;,&quot;anime_end_date_string&quot;:&quot;08-04-07&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;Naruto: Shippuuden Movie 2 - Kizuna&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:4437,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/4437\/Naruto__Shippuuden_Movie_2_-_Kizuna\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/4437\/Naruto__Shippuuden_Movie_2_-_Kizuna&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/3\/17830.jpg?s=284607e9d59d52717a2e00ab3a3d0d63&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;08-02-08&quot;,&quot;anime_end_date_string&quot;:&quot;08-02-08&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;Naruto: Shippuuden Movie 3 - Hi no Ishi wo Tsugu Mono&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:6325,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/6325\/Naruto__Shippuuden_Movie_3_-_Hi_no_Ishi_wo_Tsugu_Mono\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/6325\/Naruto__Shippuuden_Movie_3_-_Hi_no_Ishi_wo_Tsugu_Mono&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/7\/14686.jpg?s=50ec1f10e6084ddaa66b76d7323bea5f&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;08-01-09&quot;,&quot;anime_end_date_string&quot;:&quot;08-01-09&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;Naruto: Shippuuden Movie 4 - The Lost Tower&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:8246,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/8246\/Naruto__Shippuuden_Movie_4_-_The_Lost_Tower\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/8246\/Naruto__Shippuuden_Movie_4_-_The_Lost_Tower&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/3\/23344.jpg?s=658645bb138e9484af2a069dc338b0b6&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;07-31-10&quot;,&quot;anime_end_date_string&quot;:&quot;07-31-10&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;Naruto: Shippuuden Movie 5 - Blood Prison&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:10589,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/10589\/Naruto__Shippuuden_Movie_5_-_Blood_Prison\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/10589\/Naruto__Shippuuden_Movie_5_-_Blood_Prison&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/13\/41403.jpg?s=70fd39ec9ef49d68bec890fa70cc7fbd&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;07-30-11&quot;,&quot;anime_end_date_string&quot;:&quot;07-30-11&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;Naruto: Shippuuden Movie 6 - Road to Ninja&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:13667,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/13667\/Naruto__Shippuuden_Movie_6_-_Road_to_Ninja\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/13667\/Naruto__Shippuuden_Movie_6_-_Road_to_Ninja&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/6\/51863.jpg?s=c9362ce86c196b4c3792c4bc83c7b00a&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;07-28-12&quot;,&quot;anime_end_date_string&quot;:&quot;07-28-12&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:9,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:12,&quot;anime_title&quot;:&quot;One Punch Man&quot;,&quot;anime_num_episodes&quot;:12,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:30276,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/30276\/One_Punch_Man\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/30276\/One_Punch_Man&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/12\/76049.jpg?s=0d01cfdaaef16dd1136e1f9081a3af00&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;10-05-15&quot;,&quot;anime_end_date_string&quot;:&quot;12-21-15&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:12,&quot;anime_title&quot;:&quot;One Punch Man 2nd Season&quot;,&quot;anime_num_episodes&quot;:12,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:34134,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/34134\/One_Punch_Man_2nd_Season\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/34134\/One_Punch_Man_2nd_Season&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/1805\/99571.jpg?s=76893d6eb26f8add6731bcfa56f243ec&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;04-10-19&quot;,&quot;anime_end_date_string&quot;:&quot;07-03-19&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:10,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:25,&quot;anime_title&quot;:&quot;Shingeki no Kyojin&quot;,&quot;anime_num_episodes&quot;:25,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:16498,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/16498\/Shingeki_no_Kyojin\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/16498\/Shingeki_no_Kyojin&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/10\/47347.jpg?s=54b58bc1d2b935ec942c69139cb54bb0&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;04-07-13&quot;,&quot;anime_end_date_string&quot;:&quot;09-29-13&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:10,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:12,&quot;anime_title&quot;:&quot;Shingeki no Kyojin Season 2&quot;,&quot;anime_num_episodes&quot;:12,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:25777,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/25777\/Shingeki_no_Kyojin_Season_2\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/25777\/Shingeki_no_Kyojin_Season_2&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/4\/84177.jpg?s=e8b3578e32735ccaf9b2dcc237129581&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;04-01-17&quot;,&quot;anime_end_date_string&quot;:&quot;06-17-17&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:10,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:12,&quot;anime_title&quot;:&quot;Shingeki no Kyojin Season 3&quot;,&quot;anime_num_episodes&quot;:12,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:35760,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/35760\/Shingeki_no_Kyojin_Season_3\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/35760\/Shingeki_no_Kyojin_Season_3&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/1173\/92110.jpg?s=a14521c92281cf256898bf77b4091710&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;07-23-18&quot;,&quot;anime_end_date_string&quot;:&quot;10-15-18&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:10,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:10,&quot;anime_title&quot;:&quot;Shingeki no Kyojin Season 3 Part 2&quot;,&quot;anime_num_episodes&quot;:10,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:38524,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/38524\/Shingeki_no_Kyojin_Season_3_Part_2\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/38524\/Shingeki_no_Kyojin_Season_3_Part_2&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/1517\/100633.jpg?s=a00404552ef172c5cec8d586ed537214&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;04-29-19&quot;,&quot;anime_end_date_string&quot;:&quot;07-01-19&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:9,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:3,&quot;anime_title&quot;:&quot;Shingeki no Kyojin: Lost Girls&quot;,&quot;anime_num_episodes&quot;:3,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:36106,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/36106\/Shingeki_no_Kyojin__Lost_Girls\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/36106\/Shingeki_no_Kyojin__Lost_Girls&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/3\/89417.jpg?s=444d8186cf6e8f01ef88511e940bcc0a&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;OVA&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;12-08-17&quot;,&quot;anime_end_date_string&quot;:&quot;08-09-18&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:7,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:12,&quot;anime_title&quot;:&quot;Shingeki! Kyojin Chuugakkou&quot;,&quot;anime_num_episodes&quot;:12,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:31374,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/31374\/Shingeki_Kyojin_Chuugakkou\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/31374\/Shingeki_Kyojin_Chuugakkou&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/3\/75467.jpg?s=f997d6a695d2f75a99b480b61a4c3e52&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;10-04-15&quot;,&quot;anime_end_date_string&quot;:&quot;12-20-15&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:8,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:1,&quot;anime_title&quot;:&quot;The Last: Naruto the Movie&quot;,&quot;anime_num_episodes&quot;:1,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:16870,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/16870\/The_Last__Naruto_the_Movie\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/16870\/The_Last__Naruto_the_Movie&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/10\/67631.jpg?s=0c742785402744694d9e41c52cbd67af&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;Movie&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;12-06-14&quot;,&quot;anime_end_date_string&quot;:&quot;12-06-14&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:7,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:12,&quot;anime_title&quot;:&quot;Tokyo Ghoul&quot;,&quot;anime_num_episodes&quot;:12,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:22319,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/22319\/Tokyo_Ghoul\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/22319\/Tokyo_Ghoul&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/5\/64449.jpg?s=56e017f4300e9b5c51e0fca216a0b679&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;07-04-14&quot;,&quot;anime_end_date_string&quot;:&quot;09-19-14&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:6,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:12,&quot;anime_title&quot;:&quot;Tokyo Ghoul \u221aA&quot;,&quot;anime_num_episodes&quot;:12,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:27899,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/27899\/Tokyo_Ghoul_%E2%88%9AA\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/27899\/Tokyo_Ghoul_\u221aA&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/13\/71777.jpg?s=939471ec44e278c5667d024670fdd536&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;01-09-15&quot;,&quot;anime_end_date_string&quot;:&quot;03-27-15&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:6,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:12,&quot;anime_title&quot;:&quot;Tokyo Ghoul:re&quot;,&quot;anime_num_episodes&quot;:12,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:36511,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/36511\/Tokyo_Ghoul_re\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/36511\/Tokyo_Ghoul_re&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/1063\/95086.jpg?s=1c114637619bc3b44864a525ca80d12a&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;04-03-18&quot;,&quot;anime_end_date_string&quot;:&quot;06-19-18&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:2,&quot;score&quot;:6,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:12,&quot;anime_title&quot;:&quot;Tokyo Ghoul:re 2nd Season&quot;,&quot;anime_num_episodes&quot;:12,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:37799,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/37799\/Tokyo_Ghoul_re_2nd_Season\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/37799\/Tokyo_Ghoul_re_2nd_Season&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/1271\/95623.jpg?s=721b0dbc2d10bfc63263ef466d3f4b2f&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;10-09-18&quot;,&quot;anime_end_date_string&quot;:&quot;12-25-18&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:3,&quot;score&quot;:4,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:3,&quot;anime_title&quot;:&quot;Sword Art Online&quot;,&quot;anime_num_episodes&quot;:25,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:11757,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/11757\/Sword_Art_Online\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/11757\/Sword_Art_Online&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/11\/39717.jpg?s=05cc3cdfc451395e2c3b3dcfb46c5d7d&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;07-08-12&quot;,&quot;anime_end_date_string&quot;:&quot;12-23-12&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:6,&quot;score&quot;:0,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:0,&quot;anime_title&quot;:&quot;Fullmetal Alchemist: Brotherhood&quot;,&quot;anime_num_episodes&quot;:64,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:5114,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/5114\/Fullmetal_Alchemist__Brotherhood\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/5114\/Fullmetal_Alchemist__Brotherhood&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/1223\/96541.jpg?s=27d316fd5320071b611ad7e561c63687&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;04-05-09&quot;,&quot;anime_end_date_string&quot;:&quot;07-04-10&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:6,&quot;score&quot;:0,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:0,&quot;anime_title&quot;:&quot;Mob Psycho 100 II&quot;,&quot;anime_num_episodes&quot;:13,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:37510,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/37510\/Mob_Psycho_100_II\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/37510\/Mob_Psycho_100_II&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/1918\/96303.jpg?s=08c4432121bf6645278efe8d303f5ee6&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;01-07-19&quot;,&quot;anime_end_date_string&quot;:&quot;04-01-19&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:6,&quot;score&quot;:0,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:0,&quot;anime_title&quot;:&quot;Shingeki no Kyojin: The Final Season&quot;,&quot;anime_num_episodes&quot;:0,&quot;anime_airing_status&quot;:3,&quot;anime_id&quot;:40028,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/40028\/Shingeki_no_Kyojin__The_Final_Season\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/40028\/Shingeki_no_Kyojin__The_Final_Season&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/1384\/107759.jpg?s=ba1e097ea9f6eedf2a3ef7637df34f4e&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;R&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:null,&quot;anime_end_date_string&quot;:null,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;},{&quot;status&quot;:6,&quot;score&quot;:0,&quot;tags&quot;:&quot;&quot;,&quot;is_rewatching&quot;:0,&quot;num_watched_episodes&quot;:0,&quot;anime_title&quot;:&quot;Steins;Gate&quot;,&quot;anime_num_episodes&quot;:24,&quot;anime_airing_status&quot;:2,&quot;anime_id&quot;:9253,&quot;anime_studios&quot;:null,&quot;anime_licensors&quot;:null,&quot;anime_season&quot;:null,&quot;has_episode_video&quot;:false,&quot;has_promotion_video&quot;:true,&quot;has_video&quot;:true,&quot;video_url&quot;:&quot;\/anime\/9253\/Steins_Gate\/video&quot;,&quot;anime_url&quot;:&quot;\/anime\/9253\/Steins_Gate&quot;,&quot;anime_image_path&quot;:&quot;https:\/\/cdn.myanimelist.net\/r\/96x136\/images\/anime\/5\/73199.jpg?s=44344dc9cc90855a67baa1b4694dc74d&quot;,&quot;is_added_to_list&quot;:false,&quot;anime_media_type_string&quot;:&quot;TV&quot;,&quot;anime_mpaa_rating_string&quot;:&quot;PG-13&quot;,&quot;start_date_string&quot;:null,&quot;finish_date_string&quot;:null,&quot;anime_start_date_string&quot;:&quot;04-06-11&quot;,&quot;anime_end_date_string&quot;:&quot;09-14-11&quot;,&quot;days_string&quot;:null,&quot;storage_string&quot;:&quot;&quot;,&quot;priority_string&quot;:&quot;Low&quot;}]">
+        <tbody><tr class="list-table-header"><th class="header-title status"></th><th class="header-title number">#</th><th class="header-title image"><a class="link hover_info">Image</a></th><th class="header-title title"><a href="https://myanimelist.net/animelist/rohansingh9001?status=7&amp;order=1&amp;order2=0" class="link sort">
+            Anime Title
+                      </a></th><th class="header-title score"><a href="https://myanimelist.net/animelist/rohansingh9001?status=7&amp;order=4&amp;order2=0" class="link sort">
+            Score
+                      </a></th><th class="header-title type"><a href="https://myanimelist.net/animelist/rohansingh9001?status=7&amp;order=6&amp;order2=0" class="link sort">
+            Type
+                      </a></th><th class="header-title progress"><a href="https://myanimelist.net/animelist/rohansingh9001?status=7&amp;order=12&amp;order2=0" class="link sort">
+            Progress
+                      </a></th><th class="header-title tags">
+          Tags
+                  </th></tr></tbody>
+    <tbody class="list-item" style="display: none;" v-for="(item, i) in items">
+      <tr class="list-table-data">
+        <td class="data status" :class="getStatusClass(item)"></td>
+                <td class="data number">${ i + 1 }</td>
+        
+                <td class="data image">
+          <a :href="item.anime_url" class="link sort">
+            <img :src="item.anime_image_path" class="hover-info image">
+          </a>
+        </td>
+        
+        <td class="data title clearfix">
+          <a :href="item.anime_url" class="link sort">${ item.anime_title }</a>
+          <a v-if="item.has_episode_video" :href="item.video_url" class="icon-watch ml4" title="Watch Episode Video">Watch Episode Video</a>
+                    <span class="rewatching" v-show="item.status == 2 && item.is_rewatching == 1">
+            ${ item.status == 2 && item.is_rewatching == 1 ? "Re-watching" : "" }
+          </span>
+          <span class="content-status" v-show="getContentStatusText(item)">
+            ${ getContentStatusText(item) }
+          </span>
+                    <div class="add-edit-more">
+            <span v-if="item.is_added_to_list" class="edit">
+              <a :href="'/ownlist/anime/'+item.anime_id+'/edit?hideLayout'" class="List_LightBox">Edit</a>
+            </span>
+            <span v-if="!item.is_added_to_list" class="add">
+              <a :href="'/ownlist/anime/add?selected_series_id='+item.anime_id+'&hideLayout'" class="List_LightBox">Add</a>
+            </span>
+            -
+            <span class="more">
+              <a href="#" @click.prevent="showMore(item)">More</a>
+            </span>
+          </div>
+        </td>
+
+                <td class="data score">
+          <a href="#" @click.prevent="!canEdit || (item.isScoreInEdit = true)" v-show="!item.isScoreInEdit"
+            :class="classObject" class="link">
+            <span class="score-label" :class="'score-' + (item.score > 0 ? item.score : 'na')">
+              ${ item.score != 0 ? item.score : "-" }
+            </span>
+          </a>
+          <transition name="edit" v-on:enter="editTransition">
+          <select v-model="item.score" v-if="item.isScoreInEdit"
+            @focusout="item.isScoreInEdit = false" @blur="item.isScoreInEdit = false" @change="editScore(item)">
+            <option value="0">-</option>
+                                        <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                                    </select>
+          </transition>
+        </td>
+        
+                <td class="data type">
+          ${ item.anime_media_type_string }
+        </td>
+        
+                <td class="data progress">
+          <div :class="'progress-'+item.anime_id">
+            <span v-if="!getIsCompleted(item)">
+              <a href="#" @click.prevent="!canEdit || (item.isEpisodeInEdit = true)"
+                v-if="!item.isEpisodeInEdit" :class="classObject"
+                class="link">${ item.num_watched_episodes == 0 ? "-" : item.num_watched_episodes }</a>
+              <transition name="edit" v-on:enter="editTransition">
+              <input v-model="item.num_watched_episodes" v-if="item.isEpisodeInEdit"
+              @change="editEpisode(item)" @focusout="item.isEpisodeInEdit = false" @blur="item.isEpisodeInEdit = false"
+              type="text" style="width:30px;">
+              </transition>
+              /
+            </span>
+            <span>${ item.anime_num_episodes == 0 ? "-" : item.anime_num_episodes }</span>
+            <a href="#" v-if="!getIsCompleted(item) && canEdit" @click.prevent="!canEdit || incrementEpisode(item)" class="icon-add-episode">
+              <i class="fa fa-plus-circle"></i>
+            </a>
+          </div>
+        </td>
+        
+                <td class="data tags" :id="'tags-'+item.anime_id">
+          <div v-if="!item.isTagInEdit" :class="'tags-'+item.anime_id">
+            <span v-for="(tag, i) in getParsedTags(item)">${ i!=0 ? ", " : "" }<a :href="generateTagPath(tag)">${ tag }</a></span>
+          </div>
+          <transition name="edit" v-on:enter="editTransition">
+          <textarea v-model="item.tags" v-if="item.isTagInEdit"
+            @change="editTag(item)" @keydown.13="editTag(item)" @focusout="item.isTagInEdit=false" @blur="item.isTagInEdit=false"></textarea>
+          </transition>
+          <a @click.prevent="item.isTagInEdit = true" v-if="canEdit && !item.isTagInEdit" href="#" class="edit">Edit</a>
+        </td>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+              </tr>
+      <tr :id="'more-'+item.anime_id" class="more-info">
+        <td colspan="8" class="more-content">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="loading-space">
+    <i id="loading-spinner" class="fa fa-spinner fa-spin"></i>
+  </div>
+</div>
+          </div>
+  </div>
+  <footer>
+    <div id="footer-block">
+      <div id="copyright">
+        MyAnimeList.net is a property of MyAnimeList, LLC. &copy;2020 All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+  <script src='//www.googletagservices.com/tag/js/gpt.js' async="async"></script>
+<script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+</script>
+
+<script async>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga')
+
+  ga('create', 'UA-369102-1', 'auto')
+  ga('set', 'anonymizeIp', true)
+  ga('require', 'linkid') // Enhanced Link Attribution
+  ga('send', 'pageview')
+</script>
+  <script>
+window.onscroll = function(e){
+    const scrollThreshold = 50;
+    if (window.pageYOffset >= scrollThreshold) {
+        [].forEach.call(document.querySelectorAll('.no-ad'), function(ad) {
+            let t_height = ad.offsetHeight;
+            let offsetY = ad.getBoundingClientRect().top;
+            let screenHeight = window.outerHeight;
+            let t_position = offsetY - screenHeight;
+            if(-screenHeight<=(t_position　+　t_height) && t_position<0) {
+                ad.className = 'ad-tag';
+                (deployads = window.deployads || []).push({});
+            }
+        });
+    }
+}
+var timer = 0;
+window.onresize = function(e){
+    if (timer > 0) {
+        clearTimeout(timer);
+    }
+
+    timer = setTimeout(function () {
+        console.log('window resized');
+        [].forEach.call(document.querySelectorAll('.ad-tag'), function(ad) {
+            ad.className = 'no-ad';
+            (deployads = window.deployads || []).push({});
+        });
+        [].forEach.call(document.querySelectorAll('.no-ad'), function(ad) {
+            ad.className = 'ad-tag';
+            (deployads = window.deployads || []).push({});
+        });
+    }, 200);
+}
+</script><script src="https://www.google.com/recaptcha/api.js?hl=en" async="async"></script>
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WL4QW3G');</script><script type="text/javascript">
+    window.MAL.magia = "06410c4e6b2518e9add8f6df0ccb2da2876bb8c980aacb43a8dcaa8153c0f92c";
+  window.MAL.madoka = "hZrDKm9k6FVRnqd3i%=K";
+
+  window.MAL.SLVK = "g4OvMLVOmEI3J8u7dt8f8+mAuualsqCo";
+  window.MAL.CDN_URL = "https://cdn.myanimelist.net";
+
+  window.MAL.CURRENT_TUTORIAL_STEP_ID = null;
+  window.MAL.USER_NAME = ""
+  window.MAL.FACEBOOK.APP_ID = "360769957454434"
+  window.MAL.FACEBOOK.API_VERSION = "v2.12"
+</script>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WL4QW3G" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+</body>
+</html>
