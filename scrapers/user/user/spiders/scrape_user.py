@@ -16,10 +16,13 @@ keywords = [''.join(i) for i in product(ascii_lowercase, repeat=3)]
 at_keyword = 0
 total_crawlers = len(keywords)
 # Function to run the spider on
+
+
 def char_spider(i):
     global at_keyword
     os.system(f"python user.py {keywords[at_keyword + i]}")
     return f"Spider Done for {keywords[at_keyword + i]}"
+
 
 # Multiple spiders
 for _ in range(math.ceil(total_crawlers/THREADS)):
@@ -31,9 +34,7 @@ for _ in range(math.ceil(total_crawlers/THREADS)):
                 results.append(f)
             else:
                 break
-        
+
         for f in results:
             print(f.result())
         at_keyword += THREADS
-    
-
