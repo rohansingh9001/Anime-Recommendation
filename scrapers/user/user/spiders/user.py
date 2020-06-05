@@ -5,12 +5,14 @@ import sys
 
 usernames = set([])
 
+
 class ProfileSpider(scrapy.Spider):
     name = "user"
 
     def __init__(self, chars=sys.argv[1], *args, **kwargs):
         super(ProfileSpider, self).__init__(*args, **kwargs)
-        self.start_urls = [f'https://myanimelist.net/users.php?q={chars}&show=1']
+        self.start_urls = [
+            f'https://myanimelist.net/users.php?q={chars}&show=1']
 
     def start_requests(self):
         for url in self.start_urls:
@@ -43,6 +45,5 @@ process.crawl(ProfileSpider)
 process.start()
 
 with open(f"./crawlers/{sys.argv[1]}.txt", "a", encoding="utf-8") as file:
-        for user in usernames:
-            file.write(user + '\n')
-
+    for user in usernames:
+        file.write(user + '\n')

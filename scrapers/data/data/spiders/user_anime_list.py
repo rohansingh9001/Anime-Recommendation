@@ -1,7 +1,9 @@
 import scrapy
 
+
 with open("users.txt", "r", encoding="utf-8") as file:
     users = file.readlines()
+
 
 class QuotesSpider(scrapy.Spider):
     name = "user-anime-list"
