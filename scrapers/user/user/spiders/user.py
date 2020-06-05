@@ -1,16 +1,16 @@
 import scrapy
 from scrapy.http import Request
+from scrapy.crawler import CrawlerProcess
+import sys
 
-from itertools import product
-from string import ascii_lowercase
-keywords = [''.join(i) for i in product(ascii_lowercase, repeat=3)]
-index = 0
-
+usernames = set([])
 
 class ProfileSpider(scrapy.Spider):
     name = "user"
 
-    start_urls = ['https://myanimelist.net/users.php?q=aaa&show=1']
+    def __init__(self, chars=sys.argv[1], *args, **kwargs):
+        super(ProfileSpider, self).__init__(*args, **kwargs)
+        self.start_urls = [f'https://myanimelist.net/users.php?q={chars}&show=1']
 
     def start_requests(self):
         for url in self.start_urls:
@@ -23,35 +23,26 @@ class ProfileSpider(scrapy.Spider):
         temp = '='.join(temp)
         self.start_urls[0] = temp
 
-    def next_name(self):
-        global index, keywords
-        index += 1
-        new_name = keywords[index]
-        temp = self.start_urls[0]
-        temp = temp.split('=')
-        temp[1] = new_name+'&show'
-        temp[-1] = str(1)
-        temp = '='.join(temp)
-        self.start_urls[0] = temp
-
     def parse(self, response):
+        global usernames
         self.logger.info('Parse function called on {}'.format(response.url))
 
         if response.status != 200:
-
-            self.next_name()
-
-            yield scrapy.Request(self.start_urls[0], callback=self.parse)
-
+            pass
         else:
-
-            self.next_page()
-
             users = response.xpath("//td[@class='borderClass']//div//a")
-
             for user in users:
-                yield {
-                    'profile': user.css('a::attr(href)').getall()[0],
-                }
-
+                username = user.css('a::attr(href)').getall()[0]
+                usernames.add(username)
+            self.next_page()
             yield scrapy.Request(self.start_urls[0], callback=self.parse)
+
+
+process = CrawlerProcess()
+process.crawl(ProfileSpider)
+process.start()
+
+with open(f"./crawlers/{sys.argv[1]}.txt", "a", encoding="utf-8") as file:
+        for user in usernames:
+            file.write(user + '\n')
+
