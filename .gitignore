@@ -2,7 +2,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+items_extractor_13.csv
+raw_data.csv
+proc_data.csv
+cosine_model.csv
+pearson_model.csv
 # C extensions
 *.so
 
